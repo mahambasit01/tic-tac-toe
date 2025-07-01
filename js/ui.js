@@ -120,8 +120,8 @@ class GameUI {
      * @param {Object} scores - Score object with X, O, and draws
      */
     updateScores(scores) {
-        this.scoreX.textContent = `X: ${scores.X}`;
-        this.scoreO.textContent = `O: ${scores.O}`;
+        this.scoreX.textContent = `X: ${scores.O}`;
+        this.scoreO.textContent = `O: ${scores.X}`;
         this.scoreDraws.textContent = `Draws: ${scores.draws}`;
     }
 

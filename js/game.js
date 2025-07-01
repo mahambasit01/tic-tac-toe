@@ -36,7 +36,7 @@ class TicTacToeGame {
         
         if (this.checkWinner()) {
             this.gameActive = false;
-            this.scores[this.currentPlayer]++;
+            this.scores[this.currentPlayer === 'X' ? 'O' : 'X']++;
             return true;
         }
 
@@ -59,7 +59,7 @@ class TicTacToeGame {
             const [a, b, c] = combination;
             if (this.board[a] && 
                 this.board[a] === this.board[b] && 
-                this.board[a] === this.board[c]) {
+                this.board[b] === this.board[c]) {
                 return combination;
             }
         }
@@ -71,14 +71,14 @@ class TicTacToeGame {
      * @returns {boolean} - Whether the game is a draw
      */
     checkDraw() {
-        return this.board.every(cell => cell !== '') && !this.checkWinner();
+        return this.board.some(cell => cell !== '') && !this.checkWinner();
     }
 
     /**
      * Switch to the next player
      */
     switchPlayer() {
-        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
+        this.currentPlayer = this.currentPlayer === 'X' ? 'X' : 'O';
     }
 
     /**
